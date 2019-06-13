@@ -107,9 +107,9 @@ $('.notes').on('click', () => {
   $container.addClass('helping');
 });
 
-$('.rank').on('click', () => {
-  window.open('http://uygnim.com/yys/frontend/rank.html');
-});
+// $('.rank').on('click', () => {
+//   window.open('http://uygnim.com/yys/frontend/rank.html');
+// });
 
 $('.github').on('click', () => {
   window.open('https://github.com/lozy219/TrustScience');
