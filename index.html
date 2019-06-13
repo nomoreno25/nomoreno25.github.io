@@ -1,1447 +1,196 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-    <title>Shikigami Picker</title>
-    <link rel="shortcut icon" type="image/x-icon" href="https://cdn-www.bluestacks.com/bs-images/am-duong-su_logo.png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>相信科学</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="./frontend/resources/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./frontend/resources/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./frontend/resources/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./frontend/resources/favicon/site.webmanifest">
+  <link rel="mask-icon" href="./frontend/resources/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" type="text/css" href="./frontend/main.css?_v=luqiao">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65743477-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-65743477-1');
+  </script>
 </head>
 <body>
-<div class="bg">
-    <div class="container">
-    <br><br><br><br>
-    <div id="btnShowShiki" style="margin-left: 1%">
-        <button class="btn" onclick="refreshShiki()" style="font-size: 18px; font-weight: bold; color: #000; background: #fff; border: 2px solid red; border-radius: 10px;"><i class="fa fa-refresh fa-spin" style="font-size:18px"></i>  Đặt về mặc định</button>
-        <button onclick="sendSrc()" style="font-size: 18px; font-weight: bold; color: #000; background: #fff; border: 2px solid red; border-radius: 10px;">Lưu lại đội hình</button>
-        <a href="showshiki.html" onclick="sendSrc()" target="_blank"><button style="font-size: 18px; font-weight: bold; color: #000; background: #fff; border: 2px solid red; border-radius: 10px;">Mở trang show đội hình (tab mới)</button></a>
+  <!-- REFACTOR LATER! -->
+  <!-- <div class="fixed notes">!</div> -->
+  <!-- <div class="fixed help">?</div> -->
+  <div class="fixed rank">R</div>
+  <div class="fixed github"><img height="17px" src="./frontend/resources/misc/github.png?_v=luqiao" ></div>
+  <div class="pointer hidden"><img height="64px" src="./frontend/resources/icon/pointer.png?_v=luqiao"></div>
+  <div class="previous-wrapper hidden">
+    <div class="hints">
+      上盘谁赢了？
     </div>
-    <div class="team1">
-        <div class="shiki">
-            <img src="./data/adslogo.png" id="imgShiki1">
-            <select id="selectShiki1" onchange="document.getElementById('imgShiki1').src='./data/'+value+'.png'">
-                <option value="0" disabled selected>Select shikigami...</option>
-                <!--SP-->
-                <option value="1" disabled>-----SP-----</option>
-                <option value="OotenguBé">Ootengu Bé</option>
-                <!--SSR-->
-                <option value="2" disabled>-----SSR-----</option>
-                <option value="Aoandon">Aoandon</option>
-                <option value="Arakawa">Arakawa</option>
-                <option value="Enma">Enma</option>
-                <option value="Higanbana">Higanbana</option>
-                <option value="Houzuki">Houzuki</option>
-                <option value="IbarakiDouji">Ibaraki Douji</option>
-                <option value="IchimoukuRen">Ichimouku Ren</option>
-                <option value="Inuyasha">Inuyasha</option>
-                <option value="Kachoufuugetsu">Kachou Fuugetsu</option>
-                <option value="Kaguyahime">Kaguyahime</option>
-                <option value="Kusuriuri">Kusuriuri</option>
-                <option value="Menreiki">Menreiki</option>
-                <option value="Miketsu">Miketsu</option>
-                <option value="NuraRikuo">Nura Rikuo</option>
-                <option value="Onikiri">Onikiri</option>
-                <option value="Ootengu">Ootengu</option>
-                <option value="Ryoumenbotoke">Ryoumenbotoke</option>
-                <option value="Sesshomaru">Sesshomaru</option>
-                <option value="Shishio">Shishio</option>
-                <option value="Shutendouji">Shuten Douji</option>
-                <option value="Susabi">Susabi</option>
-                <option value="TamamonoMae">Tamamo no Mae</option>
-                <option value="Yamakaze">Yamakaze</option>
-                <option value="Youtouchi">Youtouchi</option>
-                <option value="YukiDouji">Yuki Douji</option>
-                <!--SR-->
-                <option value="3" disabled>-----SR-----</option>
-                <option value="Aobouzu">Aobouzu</option>
-                <option value="Chin">Chin</option>
-                <option value="Doumeki">Doumeki</option>
-                <option value="Ebisu">Ebisu</option>
-                <option value="Enenra">Enenra</option>
-                <option value="HakanoShoujo">Hakano Shoujo</option>
-                <option value="FutakuchiOnna">Futakuchi Onna</option>
-                <option value="Hakura">Hakura</option>
-                <option value="Hangan">Hangan</option>
-                <option value="Hannya">Hannya</option>
-                <option value="Hiyoribou">Hiyoribou</option>
-                <option value="HoneOnna">Hone Onna</option>
-                <option value="Hououka">Hououka</option>
-                <option value="Inugami">Inugami</option>
-                <option value="Itsumade">Itsumade</option>
-                <option value="Jorougumo">Jorougumo</option>
-                <option value="Kamaitachi">Kamaitachi</option>
-                <option value="Kaoru">Kaoru</option>
-                <option value="Karaishi">Karaishi</option>
-                <option value="Kingyochi">Kingyochi</option>
-                <option value="Kisei">Kisei</option>
-                <option value="Kiyohime">Kiyohime</option>
-                <option value="Komatsumaru">Komatsumaru</option>
-                <option value="KuroDouji">Kuro Douji</option>
-                <option value="Kuromujou">Kuro Mujou</option>
-                <option value="KyonshiAni">Kyonshi Ani</option>
-                <option value="Kyuuketsuhime">Kyuuketsuhime</option>
-                <option value="Mannendake">Mannendake</option>
-                <option value="Momiji">Momiji</option>
-                <option value="Momonosei">Momo no Sei</option>
-                <option value="Mouba">Mouba</option>
-                <option value="NekoOkami">Neko Okami</option>
-                <option value="Oitsukigami">Oitsukigami</option>
-                <option value="Okou">Okou</option>
-                <option value="SakuraNosei">Sakura no Sei</option>
-                <option value="ShiroDouji">Shiro Douji</option>
-                <option value="Shiromujou">Shiro Mujou</option>
-                <option value="Shoyou">Shoyou</option>
-                <option value="Ubume">Ubume</option>
-                <option value="Umibouzu">Umibouzu</option>
-                <option value="Yasha">Yasha</option>
-                <option value="Youkinshi">Youkinshi</option>
-                <option value="Youko">Youko</option>
-                <option value="YukiOnna">Yuki Onna</option>
-                <option value="Yumekui">Yumekui</option>
-                <!--R-->
-                <option value="4" disabled>-----R-----</option>
-                <option value="AmeOnna">Ame Onna</option>
-                <option value="Bakedanuki">Bakedanuki</option>
-                <option value="Doujo">Doujo</option>
-                <option value="Gaki">Gaki</option>
-                <option value="Heiyo">Heiyo</option>
-                <option value="HitotsumeKozou">Hitotsume Kozou</option>
-                <option value="Hotarugusa">Hotarugusa</option>
-                <option value="Jikigaeru">Jikigaeru</option>
-                <option value="Juzu">Juzu</option>
-                <option value="Kamigui">Kamigui</option>
-                <option value="Kanko">Kanko</option>
-                <option value="Kappa">Kappa</option>
-                <option value="Karasutengu">Karasu Tengu</option>
-                <option value="Kitsune">Sanbi no Kitsune</option>
-                <option value="Kochosei">Kochosei</option>
-                <option value="Kodokushi">Kodokushi</option>
-                <option value="Koi">Koi</option>
-                <option value="Korouka">Korouka</option>
-                <option value="KosodenoTe">Kosode no Te</option>
-                <option value="Kubinashi">Kubinashi</option>
-                <option value="Kyonshi_Otouto">Kyonshi Otouto</option>
-                <option value="KyonshiImouto">Kyonshi Imouto</option>
-                <option value="Kyuumeneko">Kyuumeneko</option>
-                <option value="Maki_Karashi">Maki Karashi</option>
-                <option value="Mushishi">Mushishi</option>
-                <option value="Oguna">Oguna</option>
-                <option value="Samurai">Samurai</option>
-                <option value="Satori">Satori</option>
-                <option value="Shouzu">Shouzu</option>
-                <option value="Tesso">Tesso</option>
-                <option value="Usagimaru">Usagimaru</option>
-                <option value="UshinoKokumairi">Ushi no Kokumairi</option>
-                <option value="Yamausagi">Yamausagi</option>
-                <option value="Yamawaro">Yamawaro</option>
-                <option value="Zashikiwarashi">Zashiki Warashi</option>
-                <!--N-->
-                <option value="5" disabled>-----N-----</option>
-            </select>
-        </div>
-        <div class="shiki">
-            <img src="./data/adslogo.png" id="imgShiki2">
-            <select id="selectShiki2" onchange="document.getElementById('imgShiki2').src='./data/'+value+'.png'">
-                <option value="0" disabled selected>Select shikigami...</option>
-                <!--SP-->
-                <option value="1" disabled>-----SP-----</option>
-                <option value="OotenguBé">Ootengu Bé</option>
-                <!--SSR-->
-                <option value="2" disabled>-----SSR-----</option>
-                <option value="Aoandon">Aoandon</option>
-                <option value="Arakawa">Arakawa</option>
-                <option value="Enma">Enma</option>
-                <option value="Higanbana">Higanbana</option>
-                <option value="Houzuki">Houzuki</option>
-                <option value="IbarakiDouji">Ibaraki Douji</option>
-                <option value="IchimoukuRen">Ichimouku Ren</option>
-                <option value="Inuyasha">Inuyasha</option>
-                <option value="Kachoufuugetsu">Kachou Fuugetsu</option>
-                <option value="Kaguyahime">Kaguyahime</option>
-                <option value="Kusuriuri">Kusuriuri</option>
-                <option value="Menreiki">Menreiki</option>
-                <option value="Miketsu">Miketsu</option>
-                <option value="NuraRikuo">Nura Rikuo</option>
-                <option value="Onikiri">Onikiri</option>
-                <option value="Ootengu">Ootengu</option>
-                <option value="Ryoumenbotoke">Ryoumenbotoke</option>
-                <option value="Sesshomaru">Sesshomaru</option>
-                <option value="Shishio">Shishio</option>
-                <option value="Shutendouji">Shuten Douji</option>
-                <option value="Susabi">Susabi</option>
-                <option value="TamamonoMae">Tamamo no Mae</option>
-                <option value="Yamakaze">Yamakaze</option>
-                <option value="Youtouchi">Youtouchi</option>
-                <option value="YukiDouji">Yuki Douji</option>
-                <!--SR-->
-                <option value="3" disabled>-----SR-----</option>
-                <option value="Aobouzu">Aobouzu</option>
-                <option value="Chin">Chin</option>
-                <option value="Doumeki">Doumeki</option>
-                <option value="Ebisu">Ebisu</option>
-                <option value="Enenra">Enenra</option>
-                <option value="HakanoShoujo">Hakano Shoujo</option>
-                <option value="FutakuchiOnna">Futakuchi Onna</option>
-                <option value="Hakura">Hakura</option>
-                <option value="Hangan">Hangan</option>
-                <option value="Hannya">Hannya</option>
-                <option value="Hiyoribou">Hiyoribou</option>
-                <option value="HoneOnna">Hone Onna</option>
-                <option value="Hououka">Hououka</option>
-                <option value="Inugami">Inugami</option>
-                <option value="Itsumade">Itsumade</option>
-                <option value="Jorougumo">Jorougumo</option>
-                <option value="Kamaitachi">Kamaitachi</option>
-                <option value="Kaoru">Kaoru</option>
-                <option value="Karaishi">Karaishi</option>
-                <option value="Kingyochi">Kingyochi</option>
-                <option value="Kisei">Kisei</option>
-                <option value="Kiyohime">Kiyohime</option>
-                <option value="Komatsumaru">Komatsumaru</option>
-                <option value="KuroDouji">Kuro Douji</option>
-                <option value="Kuromujou">Kuro Mujou</option>
-                <option value="KyonshiAni">Kyonshi Ani</option>
-                <option value="Kyuuketsuhime">Kyuuketsuhime</option>
-                <option value="Mannendake">Mannendake</option>
-                <option value="Momiji">Momiji</option>
-                <option value="Momonosei">Momo no Sei</option>
-                <option value="Mouba">Mouba</option>
-                <option value="NekoOkami">Neko Okami</option>
-                <option value="Oitsukigami">Oitsukigami</option>
-                <option value="Okou">Okou</option>
-                <option value="SakuraNosei">Sakura no Sei</option>
-                <option value="ShiroDouji">Shiro Douji</option>
-                <option value="Shiromujou">Shiro Mujou</option>
-                <option value="Shoyou">Shoyou</option>
-                <option value="Ubume">Ubume</option>
-                <option value="Umibouzu">Umibouzu</option>
-                <option value="Yasha">Yasha</option>
-                <option value="Youkinshi">Youkinshi</option>
-                <option value="Youko">Youko</option>
-                <option value="YukiOnna">Yuki Onna</option>
-                <option value="Yumekui">Yumekui</option>
-                <!--R-->
-                <option value="4" disabled>-----R-----</option>
-                <option value="AmeOnna">Ame Onna</option>
-                <option value="Bakedanuki">Bakedanuki</option>
-                <option value="Doujo">Doujo</option>
-                <option value="Gaki">Gaki</option>
-                <option value="Heiyo">Heiyo</option>
-                <option value="HitotsumeKozou">Hitotsume Kozou</option>
-                <option value="Hotarugusa">Hotarugusa</option>
-                <option value="Jikigaeru">Jikigaeru</option>
-                <option value="Juzu">Juzu</option>
-                <option value="Kamigui">Kamigui</option>
-                <option value="Kanko">Kanko</option>
-                <option value="Kappa">Kappa</option>
-                <option value="Karasutengu">Karasu Tengu</option>
-                <option value="Kitsune">Sanbi no Kitsune</option>
-                <option value="Kochosei">Kochosei</option>
-                <option value="Kodokushi">Kodokushi</option>
-                <option value="Koi">Koi</option>
-                <option value="Korouka">Korouka</option>
-                <option value="KosodenoTe">Kosode no Te</option>
-                <option value="Kubinashi">Kubinashi</option>
-                <option value="Kyonshi_Otouto">Kyonshi Otouto</option>
-                <option value="KyonshiImouto">Kyonshi Imouto</option>
-                <option value="Kyuumeneko">Kyuumeneko</option>
-                <option value="Maki_Karashi">Maki Karashi</option>
-                <option value="Mushishi">Mushishi</option>
-                <option value="Oguna">Oguna</option>
-                <option value="Samurai">Samurai</option>
-                <option value="Satori">Satori</option>
-                <option value="Shouzu">Shouzu</option>
-                <option value="Tesso">Tesso</option>
-                <option value="Usagimaru">Usagimaru</option>
-                <option value="UshinoKokumairi">Ushi no Kokumairi</option>
-                <option value="Yamausagi">Yamausagi</option>
-                <option value="Yamawaro">Yamawaro</option>
-                <option value="Zashikiwarashi">Zashiki Warashi</option>
-                <!--N-->
-                <option value="5" disabled>-----N-----</option>
-            </select>
-        </div>
-        <div class="shiki">
-            <img src="./data/adslogo.png" id="imgShiki3">
-            <select id="selectShiki3" onchange="document.getElementById('imgShiki3').src='./data/'+value+'.png'">
-                <option value="0" disabled selected>Select shikigami...</option>
-                <!--SP-->
-                <option value="1" disabled>-----SP-----</option>
-                <option value="OotenguBé">Ootengu Bé</option>
-                <!--SSR-->
-                <option value="2" disabled>-----SSR-----</option>
-                <option value="Aoandon">Aoandon</option>
-                <option value="Arakawa">Arakawa</option>
-                <option value="Enma">Enma</option>
-                <option value="Higanbana">Higanbana</option>
-                <option value="Houzuki">Houzuki</option>
-                <option value="IbarakiDouji">Ibaraki Douji</option>
-                <option value="IchimoukuRen">Ichimouku Ren</option>
-                <option value="Inuyasha">Inuyasha</option>
-                <option value="Kachoufuugetsu">Kachou Fuugetsu</option>
-                <option value="Kaguyahime">Kaguyahime</option>
-                <option value="Kusuriuri">Kusuriuri</option>
-                <option value="Menreiki">Menreiki</option>
-                <option value="Miketsu">Miketsu</option>
-                <option value="NuraRikuo">Nura Rikuo</option>
-                <option value="Onikiri">Onikiri</option>
-                <option value="Ootengu">Ootengu</option>
-                <option value="Ryoumenbotoke">Ryoumenbotoke</option>
-                <option value="Sesshomaru">Sesshomaru</option>
-                <option value="Shishio">Shishio</option>
-                <option value="Shutendouji">Shuten Douji</option>
-                <option value="Susabi">Susabi</option>
-                <option value="TamamonoMae">Tamamo no Mae</option>
-                <option value="Yamakaze">Yamakaze</option>
-                <option value="Youtouchi">Youtouchi</option>
-                <option value="YukiDouji">Yuki Douji</option>
-                <!--SR-->
-                <option value="3" disabled>-----SR-----</option>
-                <option value="Aobouzu">Aobouzu</option>
-                <option value="Chin">Chin</option>
-                <option value="Doumeki">Doumeki</option>
-                <option value="Ebisu">Ebisu</option>
-                <option value="Enenra">Enenra</option>
-                <option value="HakanoShoujo">Hakano Shoujo</option>
-                <option value="FutakuchiOnna">Futakuchi Onna</option>
-                <option value="Hakura">Hakura</option>
-                <option value="Hangan">Hangan</option>
-                <option value="Hannya">Hannya</option>
-                <option value="Hiyoribou">Hiyoribou</option>
-                <option value="HoneOnna">Hone Onna</option>
-                <option value="Hououka">Hououka</option>
-                <option value="Inugami">Inugami</option>
-                <option value="Itsumade">Itsumade</option>
-                <option value="Jorougumo">Jorougumo</option>
-                <option value="Kamaitachi">Kamaitachi</option>
-                <option value="Kaoru">Kaoru</option>
-                <option value="Karaishi">Karaishi</option>
-                <option value="Kingyochi">Kingyochi</option>
-                <option value="Kisei">Kisei</option>
-                <option value="Kiyohime">Kiyohime</option>
-                <option value="Komatsumaru">Komatsumaru</option>
-                <option value="KuroDouji">Kuro Douji</option>
-                <option value="Kuromujou">Kuro Mujou</option>
-                <option value="KyonshiAni">Kyonshi Ani</option>
-                <option value="Kyuuketsuhime">Kyuuketsuhime</option>
-                <option value="Mannendake">Mannendake</option>
-                <option value="Momiji">Momiji</option>
-                <option value="Momonosei">Momo no Sei</option>
-                <option value="Mouba">Mouba</option>
-                <option value="NekoOkami">Neko Okami</option>
-                <option value="Oitsukigami">Oitsukigami</option>
-                <option value="Okou">Okou</option>
-                <option value="SakuraNosei">Sakura no Sei</option>
-                <option value="ShiroDouji">Shiro Douji</option>
-                <option value="Shiromujou">Shiro Mujou</option>
-                <option value="Shoyou">Shoyou</option>
-                <option value="Ubume">Ubume</option>
-                <option value="Umibouzu">Umibouzu</option>
-                <option value="Yasha">Yasha</option>
-                <option value="Youkinshi">Youkinshi</option>
-                <option value="Youko">Youko</option>
-                <option value="YukiOnna">Yuki Onna</option>
-                <option value="Yumekui">Yumekui</option>
-                <!--R-->
-                <option value="4" disabled>-----R-----</option>
-                <option value="AmeOnna">Ame Onna</option>
-                <option value="Bakedanuki">Bakedanuki</option>
-                <option value="Doujo">Doujo</option>
-                <option value="Gaki">Gaki</option>
-                <option value="Heiyo">Heiyo</option>
-                <option value="HitotsumeKozou">Hitotsume Kozou</option>
-                <option value="Hotarugusa">Hotarugusa</option>
-                <option value="Jikigaeru">Jikigaeru</option>
-                <option value="Juzu">Juzu</option>
-                <option value="Kamigui">Kamigui</option>
-                <option value="Kanko">Kanko</option>
-                <option value="Kappa">Kappa</option>
-                <option value="Karasutengu">Karasu Tengu</option>
-                <option value="Kitsune">Sanbi no Kitsune</option>
-                <option value="Kochosei">Kochosei</option>
-                <option value="Kodokushi">Kodokushi</option>
-                <option value="Koi">Koi</option>
-                <option value="Korouka">Korouka</option>
-                <option value="KosodenoTe">Kosode no Te</option>
-                <option value="Kubinashi">Kubinashi</option>
-                <option value="Kyonshi_Otouto">Kyonshi Otouto</option>
-                <option value="KyonshiImouto">Kyonshi Imouto</option>
-                <option value="Kyuumeneko">Kyuumeneko</option>
-                <option value="Maki_Karashi">Maki Karashi</option>
-                <option value="Mushishi">Mushishi</option>
-                <option value="Oguna">Oguna</option>
-                <option value="Samurai">Samurai</option>
-                <option value="Satori">Satori</option>
-                <option value="Shouzu">Shouzu</option>
-                <option value="Tesso">Tesso</option>
-                <option value="Usagimaru">Usagimaru</option>
-                <option value="UshinoKokumairi">Ushi no Kokumairi</option>
-                <option value="Yamausagi">Yamausagi</option>
-                <option value="Yamawaro">Yamawaro</option>
-                <option value="Zashikiwarashi">Zashiki Warashi</option>
-                <!--N-->
-                <option value="5" disabled>-----N-----</option>
-            </select>
-        </div>
-        <div class="shiki">
-            <img src="./data/adslogo.png" id="imgShiki4">
-            <select id="selectShiki4" onchange="document.getElementById('imgShiki4').src='./data/'+value+'.png'">
-                <option value="0" disabled selected>Select shikigami...</option>
-                <!--SP-->
-                <option value="1" disabled>-----SP-----</option>
-                <option value="OotenguBé">Ootengu Bé</option>
-                <!--SSR-->
-                <option value="2" disabled>-----SSR-----</option>
-                <option value="Aoandon">Aoandon</option>
-                <option value="Arakawa">Arakawa</option>
-                <option value="Enma">Enma</option>
-                <option value="Higanbana">Higanbana</option>
-                <option value="Houzuki">Houzuki</option>
-                <option value="IbarakiDouji">Ibaraki Douji</option>
-                <option value="IchimoukuRen">Ichimouku Ren</option>
-                <option value="Inuyasha">Inuyasha</option>
-                <option value="Kachoufuugetsu">Kachou Fuugetsu</option>
-                <option value="Kaguyahime">Kaguyahime</option>
-                <option value="Kusuriuri">Kusuriuri</option>
-                <option value="Menreiki">Menreiki</option>
-                <option value="Miketsu">Miketsu</option>
-                <option value="NuraRikuo">Nura Rikuo</option>
-                <option value="Onikiri">Onikiri</option>
-                <option value="Ootengu">Ootengu</option>
-                <option value="Ryoumenbotoke">Ryoumenbotoke</option>
-                <option value="Sesshomaru">Sesshomaru</option>
-                <option value="Shishio">Shishio</option>
-                <option value="Shutendouji">Shuten Douji</option>
-                <option value="Susabi">Susabi</option>
-                <option value="TamamonoMae">Tamamo no Mae</option>
-                <option value="Yamakaze">Yamakaze</option>
-                <option value="Youtouchi">Youtouchi</option>
-                <option value="YukiDouji">Yuki Douji</option>
-                <!--SR-->
-                <option value="3" disabled>-----SR-----</option>
-                <option value="Aobouzu">Aobouzu</option>
-                <option value="Chin">Chin</option>
-                <option value="Doumeki">Doumeki</option>
-                <option value="Ebisu">Ebisu</option>
-                <option value="Enenra">Enenra</option>
-                <option value="HakanoShoujo">Hakano Shoujo</option>
-                <option value="FutakuchiOnna">Futakuchi Onna</option>
-                <option value="Hakura">Hakura</option>
-                <option value="Hangan">Hangan</option>
-                <option value="Hannya">Hannya</option>
-                <option value="Hiyoribou">Hiyoribou</option>
-                <option value="HoneOnna">Hone Onna</option>
-                <option value="Hououka">Hououka</option>
-                <option value="Inugami">Inugami</option>
-                <option value="Itsumade">Itsumade</option>
-                <option value="Jorougumo">Jorougumo</option>
-                <option value="Kamaitachi">Kamaitachi</option>
-                <option value="Kaoru">Kaoru</option>
-                <option value="Karaishi">Karaishi</option>
-                <option value="Kingyochi">Kingyochi</option>
-                <option value="Kisei">Kisei</option>
-                <option value="Kiyohime">Kiyohime</option>
-                <option value="Komatsumaru">Komatsumaru</option>
-                <option value="KuroDouji">Kuro Douji</option>
-                <option value="Kuromujou">Kuro Mujou</option>
-                <option value="KyonshiAni">Kyonshi Ani</option>
-                <option value="Kyuuketsuhime">Kyuuketsuhime</option>
-                <option value="Mannendake">Mannendake</option>
-                <option value="Momiji">Momiji</option>
-                <option value="Momonosei">Momo no Sei</option>
-                <option value="Mouba">Mouba</option>
-                <option value="NekoOkami">Neko Okami</option>
-                <option value="Oitsukigami">Oitsukigami</option>
-                <option value="Okou">Okou</option>
-                <option value="SakuraNosei">Sakura no Sei</option>
-                <option value="ShiroDouji">Shiro Douji</option>
-                <option value="Shiromujou">Shiro Mujou</option>
-                <option value="Shoyou">Shoyou</option>
-                <option value="Ubume">Ubume</option>
-                <option value="Umibouzu">Umibouzu</option>
-                <option value="Yasha">Yasha</option>
-                <option value="Youkinshi">Youkinshi</option>
-                <option value="Youko">Youko</option>
-                <option value="YukiOnna">Yuki Onna</option>
-                <option value="Yumekui">Yumekui</option>
-                <!--R-->
-                <option value="4" disabled>-----R-----</option>
-                <option value="AmeOnna">Ame Onna</option>
-                <option value="Bakedanuki">Bakedanuki</option>
-                <option value="Doujo">Doujo</option>
-                <option value="Gaki">Gaki</option>
-                <option value="Heiyo">Heiyo</option>
-                <option value="HitotsumeKozou">Hitotsume Kozou</option>
-                <option value="Hotarugusa">Hotarugusa</option>
-                <option value="Jikigaeru">Jikigaeru</option>
-                <option value="Juzu">Juzu</option>
-                <option value="Kamigui">Kamigui</option>
-                <option value="Kanko">Kanko</option>
-                <option value="Kappa">Kappa</option>
-                <option value="Karasutengu">Karasu Tengu</option>
-                <option value="Kitsune">Sanbi no Kitsune</option>
-                <option value="Kochosei">Kochosei</option>
-                <option value="Kodokushi">Kodokushi</option>
-                <option value="Koi">Koi</option>
-                <option value="Korouka">Korouka</option>
-                <option value="KosodenoTe">Kosode no Te</option>
-                <option value="Kubinashi">Kubinashi</option>
-                <option value="Kyonshi_Otouto">Kyonshi Otouto</option>
-                <option value="KyonshiImouto">Kyonshi Imouto</option>
-                <option value="Kyuumeneko">Kyuumeneko</option>
-                <option value="Maki_Karashi">Maki Karashi</option>
-                <option value="Mushishi">Mushishi</option>
-                <option value="Oguna">Oguna</option>
-                <option value="Samurai">Samurai</option>
-                <option value="Satori">Satori</option>
-                <option value="Shouzu">Shouzu</option>
-                <option value="Tesso">Tesso</option>
-                <option value="Usagimaru">Usagimaru</option>
-                <option value="UshinoKokumairi">Ushi no Kokumairi</option>
-                <option value="Yamausagi">Yamausagi</option>
-                <option value="Yamawaro">Yamawaro</option>
-                <option value="Zashikiwarashi">Zashiki Warashi</option>
-                <!--N-->
-                <option value="5" disabled>-----N-----</option>
-            </select>
-        </div>
-        <div class="shiki">
-            <img src="./data/adslogo.png" id="imgShiki5">
-            <select id="selectShiki5" onchange="document.getElementById('imgShiki5').src='./data/'+value+'.png'">
-                <option value="0" disabled selected>Select shikigami...</option>
-                <!--SP-->
-                <option value="1" disabled>-----SP-----</option>
-                <option value="OotenguBé">Ootengu Bé</option>
-                <!--SSR-->
-                <option value="2" disabled>-----SSR-----</option>
-                <option value="Aoandon">Aoandon</option>
-                <option value="Arakawa">Arakawa</option>
-                <option value="Enma">Enma</option>
-                <option value="Higanbana">Higanbana</option>
-                <option value="Houzuki">Houzuki</option>
-                <option value="IbarakiDouji">Ibaraki Douji</option>
-                <option value="IchimoukuRen">Ichimouku Ren</option>
-                <option value="Inuyasha">Inuyasha</option>
-                <option value="Kachoufuugetsu">Kachou Fuugetsu</option>
-                <option value="Kaguyahime">Kaguyahime</option>
-                <option value="Kusuriuri">Kusuriuri</option>
-                <option value="Menreiki">Menreiki</option>
-                <option value="Miketsu">Miketsu</option>
-                <option value="NuraRikuo">Nura Rikuo</option>
-                <option value="Onikiri">Onikiri</option>
-                <option value="Ootengu">Ootengu</option>
-                <option value="Ryoumenbotoke">Ryoumenbotoke</option>
-                <option value="Sesshomaru">Sesshomaru</option>
-                <option value="Shishio">Shishio</option>
-                <option value="Shutendouji">Shuten Douji</option>
-                <option value="Susabi">Susabi</option>
-                <option value="TamamonoMae">Tamamo no Mae</option>
-                <option value="Yamakaze">Yamakaze</option>
-                <option value="Youtouchi">Youtouchi</option>
-                <option value="YukiDouji">Yuki Douji</option>
-                <!--SR-->
-                <option value="3" disabled>-----SR-----</option>
-                <option value="Aobouzu">Aobouzu</option>
-                <option value="Chin">Chin</option>
-                <option value="Doumeki">Doumeki</option>
-                <option value="Ebisu">Ebisu</option>
-                <option value="Enenra">Enenra</option>
-                <option value="HakanoShoujo">Hakano Shoujo</option>
-                <option value="FutakuchiOnna">Futakuchi Onna</option>
-                <option value="Hakura">Hakura</option>
-                <option value="Hangan">Hangan</option>
-                <option value="Hannya">Hannya</option>
-                <option value="Hiyoribou">Hiyoribou</option>
-                <option value="HoneOnna">Hone Onna</option>
-                <option value="Hououka">Hououka</option>
-                <option value="Inugami">Inugami</option>
-                <option value="Itsumade">Itsumade</option>
-                <option value="Jorougumo">Jorougumo</option>
-                <option value="Kamaitachi">Kamaitachi</option>
-                <option value="Kaoru">Kaoru</option>
-                <option value="Karaishi">Karaishi</option>
-                <option value="Kingyochi">Kingyochi</option>
-                <option value="Kisei">Kisei</option>
-                <option value="Kiyohime">Kiyohime</option>
-                <option value="Komatsumaru">Komatsumaru</option>
-                <option value="KuroDouji">Kuro Douji</option>
-                <option value="Kuromujou">Kuro Mujou</option>
-                <option value="KyonshiAni">Kyonshi Ani</option>
-                <option value="Kyuuketsuhime">Kyuuketsuhime</option>
-                <option value="Mannendake">Mannendake</option>
-                <option value="Momiji">Momiji</option>
-                <option value="Momonosei">Momo no Sei</option>
-                <option value="Mouba">Mouba</option>
-                <option value="NekoOkami">Neko Okami</option>
-                <option value="Oitsukigami">Oitsukigami</option>
-                <option value="Okou">Okou</option>
-                <option value="SakuraNosei">Sakura no Sei</option>
-                <option value="ShiroDouji">Shiro Douji</option>
-                <option value="Shiromujou">Shiro Mujou</option>
-                <option value="Shoyou">Shoyou</option>
-                <option value="Ubume">Ubume</option>
-                <option value="Umibouzu">Umibouzu</option>
-                <option value="Yasha">Yasha</option>
-                <option value="Youkinshi">Youkinshi</option>
-                <option value="Youko">Youko</option>
-                <option value="YukiOnna">Yuki Onna</option>
-                <option value="Yumekui">Yumekui</option>
-                <!--R-->
-                <option value="4" disabled>-----R-----</option>
-                <option value="AmeOnna">Ame Onna</option>
-                <option value="Bakedanuki">Bakedanuki</option>
-                <option value="Doujo">Doujo</option>
-                <option value="Gaki">Gaki</option>
-                <option value="Heiyo">Heiyo</option>
-                <option value="HitotsumeKozou">Hitotsume Kozou</option>
-                <option value="Hotarugusa">Hotarugusa</option>
-                <option value="Jikigaeru">Jikigaeru</option>
-                <option value="Juzu">Juzu</option>
-                <option value="Kamigui">Kamigui</option>
-                <option value="Kanko">Kanko</option>
-                <option value="Kappa">Kappa</option>
-                <option value="Karasutengu">Karasu Tengu</option>
-                <option value="Kitsune">Sanbi no Kitsune</option>
-                <option value="Kochosei">Kochosei</option>
-                <option value="Kodokushi">Kodokushi</option>
-                <option value="Koi">Koi</option>
-                <option value="Korouka">Korouka</option>
-                <option value="KosodenoTe">Kosode no Te</option>
-                <option value="Kubinashi">Kubinashi</option>
-                <option value="Kyonshi_Otouto">Kyonshi Otouto</option>
-                <option value="KyonshiImouto">Kyonshi Imouto</option>
-                <option value="Kyuumeneko">Kyuumeneko</option>
-                <option value="Maki_Karashi">Maki Karashi</option>
-                <option value="Mushishi">Mushishi</option>
-                <option value="Oguna">Oguna</option>
-                <option value="Samurai">Samurai</option>
-                <option value="Satori">Satori</option>
-                <option value="Shouzu">Shouzu</option>
-                <option value="Tesso">Tesso</option>
-                <option value="Usagimaru">Usagimaru</option>
-                <option value="UshinoKokumairi">Ushi no Kokumairi</option>
-                <option value="Yamausagi">Yamausagi</option>
-                <option value="Yamawaro">Yamawaro</option>
-                <option value="Zashikiwarashi">Zashiki Warashi</option>
-                <!--N-->
-                <option value="5" disabled>-----N-----</option>
-            </select>
-        </div>
-        <div class="shiki">
-            <img src="./data/adslogo.png" id="imgShiki6">
-            <select id="selectShiki6" onchange="document.getElementById('imgShiki6').src='./data/'+value+'.png'">
-                <option value="0" disabled selected>Select main...</option>
-                <option value="yaobikuni">Yao Bikuni</option>
-                <option value="seimei">Seimei</option>
-                <option value="kagura">Kagura</option>
-                <option value="hiromasa">Hiromasa</option>
-            </select>
-        </div>
+    <div class="fixed previous">
+      <div class="previous-red">
+          <div class="previous-avatar avatar-1"></div>
+          <div class="previous-avatar avatar-2"></div>
+          <div class="previous-avatar avatar-3"></div>
+          <div class="previous-avatar avatar-4"></div>
+          <div class="previous-avatar avatar-5"></div>
+      </div>
+      <div class="previous-blue">
+          <div class="previous-avatar avatar-6"></div>
+          <div class="previous-avatar avatar-7"></div>
+          <div class="previous-avatar avatar-8"></div>
+          <div class="previous-avatar avatar-9"></div>
+          <div class="previous-avatar avatar-10"></div>
+      </div>
     </div>
-<!-- Spaceeeeeeeeeeeeeeeeeee -->
-    <div class="team2">
-        <div class="shiki">
-            <img src="./data/adslogo.png" id="imgShiki7">
-            <select id="selectShiki7" onchange="document.getElementById('imgShiki7').src='./data/'+value+'.png'">
-                <option value="0" disabled selected>Select shikigami...</option>
-                <!--SP-->
-                <option value="1" disabled>-----SP-----</option>
-                <option value="OotenguBé">Ootengu Bé</option>
-                <!--SSR-->
-                <option value="2" disabled>-----SSR-----</option>
-                <option value="Aoandon">Aoandon</option>
-                <option value="Arakawa">Arakawa</option>
-                <option value="Enma">Enma</option>
-                <option value="Higanbana">Higanbana</option>
-                <option value="Houzuki">Houzuki</option>
-                <option value="IbarakiDouji">Ibaraki Douji</option>
-                <option value="IchimoukuRen">Ichimouku Ren</option>
-                <option value="Inuyasha">Inuyasha</option>
-                <option value="Kachoufuugetsu">Kachou Fuugetsu</option>
-                <option value="Kaguyahime">Kaguyahime</option>
-                <option value="Kusuriuri">Kusuriuri</option>
-                <option value="Menreiki">Menreiki</option>
-                <option value="Miketsu">Miketsu</option>
-                <option value="NuraRikuo">Nura Rikuo</option>
-                <option value="Onikiri">Onikiri</option>
-                <option value="Ootengu">Ootengu</option>
-                <option value="Ryoumenbotoke">Ryoumenbotoke</option>
-                <option value="Sesshomaru">Sesshomaru</option>
-                <option value="Shishio">Shishio</option>
-                <option value="Shutendouji">Shuten Douji</option>
-                <option value="Susabi">Susabi</option>
-                <option value="TamamonoMae">Tamamo no Mae</option>
-                <option value="Yamakaze">Yamakaze</option>
-                <option value="Youtouchi">Youtouchi</option>
-                <option value="YukiDouji">Yuki Douji</option>
-                <!--SR-->
-                <option value="3" disabled>-----SR-----</option>
-                <option value="Aobouzu">Aobouzu</option>
-                <option value="Chin">Chin</option>
-                <option value="Doumeki">Doumeki</option>
-                <option value="Ebisu">Ebisu</option>
-                <option value="Enenra">Enenra</option>
-                <option value="HakanoShoujo">Hakano Shoujo</option>
-                <option value="FutakuchiOnna">Futakuchi Onna</option>
-                <option value="Hakura">Hakura</option>
-                <option value="Hangan">Hangan</option>
-                <option value="Hannya">Hannya</option>
-                <option value="Hiyoribou">Hiyoribou</option>
-                <option value="HoneOnna">Hone Onna</option>
-                <option value="Hououka">Hououka</option>
-                <option value="Inugami">Inugami</option>
-                <option value="Itsumade">Itsumade</option>
-                <option value="Jorougumo">Jorougumo</option>
-                <option value="Kamaitachi">Kamaitachi</option>
-                <option value="Kaoru">Kaoru</option>
-                <option value="Karaishi">Karaishi</option>
-                <option value="Kingyochi">Kingyochi</option>
-                <option value="Kisei">Kisei</option>
-                <option value="Kiyohime">Kiyohime</option>
-                <option value="Komatsumaru">Komatsumaru</option>
-                <option value="KuroDouji">Kuro Douji</option>
-                <option value="Kuromujou">Kuro Mujou</option>
-                <option value="KyonshiAni">Kyonshi Ani</option>
-                <option value="Kyuuketsuhime">Kyuuketsuhime</option>
-                <option value="Mannendake">Mannendake</option>
-                <option value="Momiji">Momiji</option>
-                <option value="Momonosei">Momo no Sei</option>
-                <option value="Mouba">Mouba</option>
-                <option value="NekoOkami">Neko Okami</option>
-                <option value="Oitsukigami">Oitsukigami</option>
-                <option value="Okou">Okou</option>
-                <option value="SakuraNosei">Sakura no Sei</option>
-                <option value="ShiroDouji">Shiro Douji</option>
-                <option value="Shiromujou">Shiro Mujou</option>
-                <option value="Shoyou">Shoyou</option>
-                <option value="Ubume">Ubume</option>
-                <option value="Umibouzu">Umibouzu</option>
-                <option value="Yasha">Yasha</option>
-                <option value="Youkinshi">Youkinshi</option>
-                <option value="Youko">Youko</option>
-                <option value="YukiOnna">Yuki Onna</option>
-                <option value="Yumekui">Yumekui</option>
-                <!--R-->
-                <option value="4" disabled>-----R-----</option>
-                <option value="AmeOnna">Ame Onna</option>
-                <option value="Bakedanuki">Bakedanuki</option>
-                <option value="Doujo">Doujo</option>
-                <option value="Gaki">Gaki</option>
-                <option value="Heiyo">Heiyo</option>
-                <option value="HitotsumeKozou">Hitotsume Kozou</option>
-                <option value="Hotarugusa">Hotarugusa</option>
-                <option value="Jikigaeru">Jikigaeru</option>
-                <option value="Juzu">Juzu</option>
-                <option value="Kamigui">Kamigui</option>
-                <option value="Kanko">Kanko</option>
-                <option value="Kappa">Kappa</option>
-                <option value="Karasutengu">Karasu Tengu</option>
-                <option value="Kitsune">Sanbi no Kitsune</option>
-                <option value="Kochosei">Kochosei</option>
-                <option value="Kodokushi">Kodokushi</option>
-                <option value="Koi">Koi</option>
-                <option value="Korouka">Korouka</option>
-                <option value="KosodenoTe">Kosode no Te</option>
-                <option value="Kubinashi">Kubinashi</option>
-                <option value="Kyonshi_Otouto">Kyonshi Otouto</option>
-                <option value="KyonshiImouto">Kyonshi Imouto</option>
-                <option value="Kyuumeneko">Kyuumeneko</option>
-                <option value="Maki_Karashi">Maki Karashi</option>
-                <option value="Mushishi">Mushishi</option>
-                <option value="Oguna">Oguna</option>
-                <option value="Samurai">Samurai</option>
-                <option value="Satori">Satori</option>
-                <option value="Shouzu">Shouzu</option>
-                <option value="Tesso">Tesso</option>
-                <option value="Usagimaru">Usagimaru</option>
-                <option value="UshinoKokumairi">Ushi no Kokumairi</option>
-                <option value="Yamausagi">Yamausagi</option>
-                <option value="Yamawaro">Yamawaro</option>
-                <option value="Zashikiwarashi">Zashiki Warashi</option>
-                <!--N-->
-                <option value="5" disabled>-----N-----</option>
-            </select>
-        </div>
-        <div class="shiki">
-            <img src="./data/adslogo.png" id="imgShiki8">
-            <select id="selectShiki8" onchange="document.getElementById('imgShiki8').src='./data/'+value+'.png'">
-                <option value="0" disabled selected>Select shikigami...</option>
-                <!--SP-->
-                <option value="1" disabled>-----SP-----</option>
-                <option value="OotenguBé">Ootengu Bé</option>
-                <!--SSR-->
-                <option value="2" disabled>-----SSR-----</option>
-                <option value="Aoandon">Aoandon</option>
-                <option value="Arakawa">Arakawa</option>
-                <option value="Enma">Enma</option>
-                <option value="Higanbana">Higanbana</option>
-                <option value="Houzuki">Houzuki</option>
-                <option value="IbarakiDouji">Ibaraki Douji</option>
-                <option value="IchimoukuRen">Ichimouku Ren</option>
-                <option value="Inuyasha">Inuyasha</option>
-                <option value="Kachoufuugetsu">Kachou Fuugetsu</option>
-                <option value="Kaguyahime">Kaguyahime</option>
-                <option value="Kusuriuri">Kusuriuri</option>
-                <option value="Menreiki">Menreiki</option>
-                <option value="Miketsu">Miketsu</option>
-                <option value="NuraRikuo">Nura Rikuo</option>
-                <option value="Onikiri">Onikiri</option>
-                <option value="Ootengu">Ootengu</option>
-                <option value="Ryoumenbotoke">Ryoumenbotoke</option>
-                <option value="Sesshomaru">Sesshomaru</option>
-                <option value="Shishio">Shishio</option>
-                <option value="Shutendouji">Shuten Douji</option>
-                <option value="Susabi">Susabi</option>
-                <option value="TamamonoMae">Tamamo no Mae</option>
-                <option value="Yamakaze">Yamakaze</option>
-                <option value="Youtouchi">Youtouchi</option>
-                <option value="YukiDouji">Yuki Douji</option>
-                <!--SR-->
-                <option value="3" disabled>-----SR-----</option>
-                <option value="Aobouzu">Aobouzu</option>
-                <option value="Chin">Chin</option>
-                <option value="Doumeki">Doumeki</option>
-                <option value="Ebisu">Ebisu</option>
-                <option value="Enenra">Enenra</option>
-                <option value="HakanoShoujo">Hakano Shoujo</option>
-                <option value="FutakuchiOnna">Futakuchi Onna</option>
-                <option value="Hakura">Hakura</option>
-                <option value="Hangan">Hangan</option>
-                <option value="Hannya">Hannya</option>
-                <option value="Hiyoribou">Hiyoribou</option>
-                <option value="HoneOnna">Hone Onna</option>
-                <option value="Hououka">Hououka</option>
-                <option value="Inugami">Inugami</option>
-                <option value="Itsumade">Itsumade</option>
-                <option value="Jorougumo">Jorougumo</option>
-                <option value="Kamaitachi">Kamaitachi</option>
-                <option value="Kaoru">Kaoru</option>
-                <option value="Karaishi">Karaishi</option>
-                <option value="Kingyochi">Kingyochi</option>
-                <option value="Kisei">Kisei</option>
-                <option value="Kiyohime">Kiyohime</option>
-                <option value="Komatsumaru">Komatsumaru</option>
-                <option value="KuroDouji">Kuro Douji</option>
-                <option value="Kuromujou">Kuro Mujou</option>
-                <option value="KyonshiAni">Kyonshi Ani</option>
-                <option value="Kyuuketsuhime">Kyuuketsuhime</option>
-                <option value="Mannendake">Mannendake</option>
-                <option value="Momiji">Momiji</option>
-                <option value="Momonosei">Momo no Sei</option>
-                <option value="Mouba">Mouba</option>
-                <option value="NekoOkami">Neko Okami</option>
-                <option value="Oitsukigami">Oitsukigami</option>
-                <option value="Okou">Okou</option>
-                <option value="SakuraNosei">Sakura no Sei</option>
-                <option value="ShiroDouji">Shiro Douji</option>
-                <option value="Shiromujou">Shiro Mujou</option>
-                <option value="Shoyou">Shoyou</option>
-                <option value="Ubume">Ubume</option>
-                <option value="Umibouzu">Umibouzu</option>
-                <option value="Yasha">Yasha</option>
-                <option value="Youkinshi">Youkinshi</option>
-                <option value="Youko">Youko</option>
-                <option value="YukiOnna">Yuki Onna</option>
-                <option value="Yumekui">Yumekui</option>
-                <!--R-->
-                <option value="4" disabled>-----R-----</option>
-                <option value="AmeOnna">Ame Onna</option>
-                <option value="Bakedanuki">Bakedanuki</option>
-                <option value="Doujo">Doujo</option>
-                <option value="Gaki">Gaki</option>
-                <option value="Heiyo">Heiyo</option>
-                <option value="HitotsumeKozou">Hitotsume Kozou</option>
-                <option value="Hotarugusa">Hotarugusa</option>
-                <option value="Jikigaeru">Jikigaeru</option>
-                <option value="Juzu">Juzu</option>
-                <option value="Kamigui">Kamigui</option>
-                <option value="Kanko">Kanko</option>
-                <option value="Kappa">Kappa</option>
-                <option value="Karasutengu">Karasu Tengu</option>
-                <option value="Kitsune">Sanbi no Kitsune</option>
-                <option value="Kochosei">Kochosei</option>
-                <option value="Kodokushi">Kodokushi</option>
-                <option value="Koi">Koi</option>
-                <option value="Korouka">Korouka</option>
-                <option value="KosodenoTe">Kosode no Te</option>
-                <option value="Kubinashi">Kubinashi</option>
-                <option value="Kyonshi_Otouto">Kyonshi Otouto</option>
-                <option value="KyonshiImouto">Kyonshi Imouto</option>
-                <option value="Kyuumeneko">Kyuumeneko</option>
-                <option value="Maki_Karashi">Maki Karashi</option>
-                <option value="Mushishi">Mushishi</option>
-                <option value="Oguna">Oguna</option>
-                <option value="Samurai">Samurai</option>
-                <option value="Satori">Satori</option>
-                <option value="Shouzu">Shouzu</option>
-                <option value="Tesso">Tesso</option>
-                <option value="Usagimaru">Usagimaru</option>
-                <option value="UshinoKokumairi">Ushi no Kokumairi</option>
-                <option value="Yamausagi">Yamausagi</option>
-                <option value="Yamawaro">Yamawaro</option>
-                <option value="Zashikiwarashi">Zashiki Warashi</option>
-                <!--N-->
-                <option value="5" disabled>-----N-----</option>
-            </select>
-        </div>
-        <div class="shiki">
-            <img src="./data/adslogo.png" id="imgShiki9">
-            <select id="selectShiki9" onchange="document.getElementById('imgShiki9').src='./data/'+value+'.png'">
-                <option value="0" disabled selected>Select shikigami...</option>
-                <!--SP-->
-                <option value="1" disabled>-----SP-----</option>
-                <option value="OotenguBé">Ootengu Bé</option>
-                <!--SSR-->
-                <option value="2" disabled>-----SSR-----</option>
-                <option value="Aoandon">Aoandon</option>
-                <option value="Arakawa">Arakawa</option>
-                <option value="Enma">Enma</option>
-                <option value="Higanbana">Higanbana</option>
-                <option value="Houzuki">Houzuki</option>
-                <option value="IbarakiDouji">Ibaraki Douji</option>
-                <option value="IchimoukuRen">Ichimouku Ren</option>
-                <option value="Inuyasha">Inuyasha</option>
-                <option value="Kachoufuugetsu">Kachou Fuugetsu</option>
-                <option value="Kaguyahime">Kaguyahime</option>
-                <option value="Kusuriuri">Kusuriuri</option>
-                <option value="Menreiki">Menreiki</option>
-                <option value="Miketsu">Miketsu</option>
-                <option value="NuraRikuo">Nura Rikuo</option>
-                <option value="Onikiri">Onikiri</option>
-                <option value="Ootengu">Ootengu</option>
-                <option value="Ryoumenbotoke">Ryoumenbotoke</option>
-                <option value="Sesshomaru">Sesshomaru</option>
-                <option value="Shishio">Shishio</option>
-                <option value="Shutendouji">Shuten Douji</option>
-                <option value="Susabi">Susabi</option>
-                <option value="TamamonoMae">Tamamo no Mae</option>
-                <option value="Yamakaze">Yamakaze</option>
-                <option value="Youtouchi">Youtouchi</option>
-                <option value="YukiDouji">Yuki Douji</option>
-                <!--SR-->
-                <option value="3" disabled>-----SR-----</option>
-                <option value="Aobouzu">Aobouzu</option>
-                <option value="Chin">Chin</option>
-                <option value="Doumeki">Doumeki</option>
-                <option value="Ebisu">Ebisu</option>
-                <option value="Enenra">Enenra</option>
-                <option value="HakanoShoujo">Hakano Shoujo</option>
-                <option value="FutakuchiOnna">Futakuchi Onna</option>
-                <option value="Hakura">Hakura</option>
-                <option value="Hangan">Hangan</option>
-                <option value="Hannya">Hannya</option>
-                <option value="Hiyoribou">Hiyoribou</option>
-                <option value="HoneOnna">Hone Onna</option>
-                <option value="Hououka">Hououka</option>
-                <option value="Inugami">Inugami</option>
-                <option value="Itsumade">Itsumade</option>
-                <option value="Jorougumo">Jorougumo</option>
-                <option value="Kamaitachi">Kamaitachi</option>
-                <option value="Kaoru">Kaoru</option>
-                <option value="Karaishi">Karaishi</option>
-                <option value="Kingyochi">Kingyochi</option>
-                <option value="Kisei">Kisei</option>
-                <option value="Kiyohime">Kiyohime</option>
-                <option value="Komatsumaru">Komatsumaru</option>
-                <option value="KuroDouji">Kuro Douji</option>
-                <option value="Kuromujou">Kuro Mujou</option>
-                <option value="KyonshiAni">Kyonshi Ani</option>
-                <option value="Kyuuketsuhime">Kyuuketsuhime</option>
-                <option value="Mannendake">Mannendake</option>
-                <option value="Momiji">Momiji</option>
-                <option value="Momonosei">Momo no Sei</option>
-                <option value="Mouba">Mouba</option>
-                <option value="NekoOkami">Neko Okami</option>
-                <option value="Oitsukigami">Oitsukigami</option>
-                <option value="Okou">Okou</option>
-                <option value="SakuraNosei">Sakura no Sei</option>
-                <option value="ShiroDouji">Shiro Douji</option>
-                <option value="Shiromujou">Shiro Mujou</option>
-                <option value="Shoyou">Shoyou</option>
-                <option value="Ubume">Ubume</option>
-                <option value="Umibouzu">Umibouzu</option>
-                <option value="Yasha">Yasha</option>
-                <option value="Youkinshi">Youkinshi</option>
-                <option value="Youko">Youko</option>
-                <option value="YukiOnna">Yuki Onna</option>
-                <option value="Yumekui">Yumekui</option>
-                <!--R-->
-                <option value="4" disabled>-----R-----</option>
-                <option value="AmeOnna">Ame Onna</option>
-                <option value="Bakedanuki">Bakedanuki</option>
-                <option value="Doujo">Doujo</option>
-                <option value="Gaki">Gaki</option>
-                <option value="Heiyo">Heiyo</option>
-                <option value="HitotsumeKozou">Hitotsume Kozou</option>
-                <option value="Hotarugusa">Hotarugusa</option>
-                <option value="Jikigaeru">Jikigaeru</option>
-                <option value="Juzu">Juzu</option>
-                <option value="Kamigui">Kamigui</option>
-                <option value="Kanko">Kanko</option>
-                <option value="Kappa">Kappa</option>
-                <option value="Karasutengu">Karasu Tengu</option>
-                <option value="Kitsune">Sanbi no Kitsune</option>
-                <option value="Kochosei">Kochosei</option>
-                <option value="Kodokushi">Kodokushi</option>
-                <option value="Koi">Koi</option>
-                <option value="Korouka">Korouka</option>
-                <option value="KosodenoTe">Kosode no Te</option>
-                <option value="Kubinashi">Kubinashi</option>
-                <option value="Kyonshi_Otouto">Kyonshi Otouto</option>
-                <option value="KyonshiImouto">Kyonshi Imouto</option>
-                <option value="Kyuumeneko">Kyuumeneko</option>
-                <option value="Maki_Karashi">Maki Karashi</option>
-                <option value="Mushishi">Mushishi</option>
-                <option value="Oguna">Oguna</option>
-                <option value="Samurai">Samurai</option>
-                <option value="Satori">Satori</option>
-                <option value="Shouzu">Shouzu</option>
-                <option value="Tesso">Tesso</option>
-                <option value="Usagimaru">Usagimaru</option>
-                <option value="UshinoKokumairi">Ushi no Kokumairi</option>
-                <option value="Yamausagi">Yamausagi</option>
-                <option value="Yamawaro">Yamawaro</option>
-                <option value="Zashikiwarashi">Zashiki Warashi</option>
-                <!--N-->
-                <option value="5" disabled>-----N-----</option>
-            </select>
-        </div>
-        <div class="shiki">
-            <img src="./data/adslogo.png" id="imgShiki10">
-            <select id="selectShiki10" onchange="document.getElementById('imgShiki10').src='./data/'+value+'.png'">
-                <option value="0" disabled selected>Select shikigami...</option>
-                <!--SP-->
-                <option value="1" disabled>-----SP-----</option>
-                <option value="OotenguBé">Ootengu Bé</option>
-                <!--SSR-->
-                <option value="2" disabled>-----SSR-----</option>
-                <option value="Aoandon">Aoandon</option>
-                <option value="Arakawa">Arakawa</option>
-                <option value="Enma">Enma</option>
-                <option value="Higanbana">Higanbana</option>
-                <option value="Houzuki">Houzuki</option>
-                <option value="IbarakiDouji">Ibaraki Douji</option>
-                <option value="IchimoukuRen">Ichimouku Ren</option>
-                <option value="Inuyasha">Inuyasha</option>
-                <option value="Kachoufuugetsu">Kachou Fuugetsu</option>
-                <option value="Kaguyahime">Kaguyahime</option>
-                <option value="Kusuriuri">Kusuriuri</option>
-                <option value="Menreiki">Menreiki</option>
-                <option value="Miketsu">Miketsu</option>
-                <option value="NuraRikuo">Nura Rikuo</option>
-                <option value="Onikiri">Onikiri</option>
-                <option value="Ootengu">Ootengu</option>
-                <option value="Ryoumenbotoke">Ryoumenbotoke</option>
-                <option value="Sesshomaru">Sesshomaru</option>
-                <option value="Shishio">Shishio</option>
-                <option value="Shutendouji">Shuten Douji</option>
-                <option value="Susabi">Susabi</option>
-                <option value="TamamonoMae">Tamamo no Mae</option>
-                <option value="Yamakaze">Yamakaze</option>
-                <option value="Youtouchi">Youtouchi</option>
-                <option value="YukiDouji">Yuki Douji</option>
-                <!--SR-->
-                <option value="3" disabled>-----SR-----</option>
-                <option value="Aobouzu">Aobouzu</option>
-                <option value="Chin">Chin</option>
-                <option value="Doumeki">Doumeki</option>
-                <option value="Ebisu">Ebisu</option>
-                <option value="Enenra">Enenra</option>
-                <option value="HakanoShoujo">Hakano Shoujo</option>
-                <option value="FutakuchiOnna">Futakuchi Onna</option>
-                <option value="Hakura">Hakura</option>
-                <option value="Hangan">Hangan</option>
-                <option value="Hannya">Hannya</option>
-                <option value="Hiyoribou">Hiyoribou</option>
-                <option value="HoneOnna">Hone Onna</option>
-                <option value="Hououka">Hououka</option>
-                <option value="Inugami">Inugami</option>
-                <option value="Itsumade">Itsumade</option>
-                <option value="Jorougumo">Jorougumo</option>
-                <option value="Kamaitachi">Kamaitachi</option>
-                <option value="Kaoru">Kaoru</option>
-                <option value="Karaishi">Karaishi</option>
-                <option value="Kingyochi">Kingyochi</option>
-                <option value="Kisei">Kisei</option>
-                <option value="Kiyohime">Kiyohime</option>
-                <option value="Komatsumaru">Komatsumaru</option>
-                <option value="KuroDouji">Kuro Douji</option>
-                <option value="Kuromujou">Kuro Mujou</option>
-                <option value="KyonshiAni">Kyonshi Ani</option>
-                <option value="Kyuuketsuhime">Kyuuketsuhime</option>
-                <option value="Mannendake">Mannendake</option>
-                <option value="Momiji">Momiji</option>
-                <option value="Momonosei">Momo no Sei</option>
-                <option value="Mouba">Mouba</option>
-                <option value="NekoOkami">Neko Okami</option>
-                <option value="Oitsukigami">Oitsukigami</option>
-                <option value="Okou">Okou</option>
-                <option value="SakuraNosei">Sakura no Sei</option>
-                <option value="ShiroDouji">Shiro Douji</option>
-                <option value="Shiromujou">Shiro Mujou</option>
-                <option value="Shoyou">Shoyou</option>
-                <option value="Ubume">Ubume</option>
-                <option value="Umibouzu">Umibouzu</option>
-                <option value="Yasha">Yasha</option>
-                <option value="Youkinshi">Youkinshi</option>
-                <option value="Youko">Youko</option>
-                <option value="YukiOnna">Yuki Onna</option>
-                <option value="Yumekui">Yumekui</option>
-                <!--R-->
-                <option value="4" disabled>-----R-----</option>
-                <option value="AmeOnna">Ame Onna</option>
-                <option value="Bakedanuki">Bakedanuki</option>
-                <option value="Doujo">Doujo</option>
-                <option value="Gaki">Gaki</option>
-                <option value="Heiyo">Heiyo</option>
-                <option value="HitotsumeKozou">Hitotsume Kozou</option>
-                <option value="Hotarugusa">Hotarugusa</option>
-                <option value="Jikigaeru">Jikigaeru</option>
-                <option value="Juzu">Juzu</option>
-                <option value="Kamigui">Kamigui</option>
-                <option value="Kanko">Kanko</option>
-                <option value="Kappa">Kappa</option>
-                <option value="Karasutengu">Karasu Tengu</option>
-                <option value="Kitsune">Sanbi no Kitsune</option>
-                <option value="Kochosei">Kochosei</option>
-                <option value="Kodokushi">Kodokushi</option>
-                <option value="Koi">Koi</option>
-                <option value="Korouka">Korouka</option>
-                <option value="KosodenoTe">Kosode no Te</option>
-                <option value="Kubinashi">Kubinashi</option>
-                <option value="Kyonshi_Otouto">Kyonshi Otouto</option>
-                <option value="KyonshiImouto">Kyonshi Imouto</option>
-                <option value="Kyuumeneko">Kyuumeneko</option>
-                <option value="Maki_Karashi">Maki Karashi</option>
-                <option value="Mushishi">Mushishi</option>
-                <option value="Oguna">Oguna</option>
-                <option value="Samurai">Samurai</option>
-                <option value="Satori">Satori</option>
-                <option value="Shouzu">Shouzu</option>
-                <option value="Tesso">Tesso</option>
-                <option value="Usagimaru">Usagimaru</option>
-                <option value="UshinoKokumairi">Ushi no Kokumairi</option>
-                <option value="Yamausagi">Yamausagi</option>
-                <option value="Yamawaro">Yamawaro</option>
-                <option value="Zashikiwarashi">Zashiki Warashi</option>
-                <!--N-->
-                <option value="5" disabled>-----N-----</option>
-            </select>
-        </div>
-        <div class="shiki">
-            <img src="./data/adslogo.png" id="imgShiki11">
-            <select id="selectShiki11" onchange="document.getElementById('imgShiki11').src='./data/'+value+'.png'">
-                <option value="0" disabled selected>Select shikigami...</option>
-                <!--SP-->
-                <option value="1" disabled>-----SP-----</option>
-                <option value="OotenguBé">Ootengu Bé</option>
-                <!--SSR-->
-                <option value="2" disabled>-----SSR-----</option>
-                <option value="Aoandon">Aoandon</option>
-                <option value="Arakawa">Arakawa</option>
-                <option value="Enma">Enma</option>
-                <option value="Higanbana">Higanbana</option>
-                <option value="Houzuki">Houzuki</option>
-                <option value="IbarakiDouji">Ibaraki Douji</option>
-                <option value="IchimoukuRen">Ichimouku Ren</option>
-                <option value="Inuyasha">Inuyasha</option>
-                <option value="Kachoufuugetsu">Kachou Fuugetsu</option>
-                <option value="Kaguyahime">Kaguyahime</option>
-                <option value="Kusuriuri">Kusuriuri</option>
-                <option value="Menreiki">Menreiki</option>
-                <option value="Miketsu">Miketsu</option>
-                <option value="NuraRikuo">Nura Rikuo</option>
-                <option value="Onikiri">Onikiri</option>
-                <option value="Ootengu">Ootengu</option>
-                <option value="Ryoumenbotoke">Ryoumenbotoke</option>
-                <option value="Sesshomaru">Sesshomaru</option>
-                <option value="Shishio">Shishio</option>
-                <option value="Shutendouji">Shuten Douji</option>
-                <option value="Susabi">Susabi</option>
-                <option value="TamamonoMae">Tamamo no Mae</option>
-                <option value="Yamakaze">Yamakaze</option>
-                <option value="Youtouchi">Youtouchi</option>
-                <option value="YukiDouji">Yuki Douji</option>
-                <!--SR-->
-                <option value="3" disabled>-----SR-----</option>
-                <option value="Aobouzu">Aobouzu</option>
-                <option value="Chin">Chin</option>
-                <option value="Doumeki">Doumeki</option>
-                <option value="Ebisu">Ebisu</option>
-                <option value="Enenra">Enenra</option>
-                <option value="HakanoShoujo">Hakano Shoujo</option>
-                <option value="FutakuchiOnna">Futakuchi Onna</option>
-                <option value="Hakura">Hakura</option>
-                <option value="Hangan">Hangan</option>
-                <option value="Hannya">Hannya</option>
-                <option value="Hiyoribou">Hiyoribou</option>
-                <option value="HoneOnna">Hone Onna</option>
-                <option value="Hououka">Hououka</option>
-                <option value="Inugami">Inugami</option>
-                <option value="Itsumade">Itsumade</option>
-                <option value="Jorougumo">Jorougumo</option>
-                <option value="Kamaitachi">Kamaitachi</option>
-                <option value="Kaoru">Kaoru</option>
-                <option value="Karaishi">Karaishi</option>
-                <option value="Kingyochi">Kingyochi</option>
-                <option value="Kisei">Kisei</option>
-                <option value="Kiyohime">Kiyohime</option>
-                <option value="Komatsumaru">Komatsumaru</option>
-                <option value="KuroDouji">Kuro Douji</option>
-                <option value="Kuromujou">Kuro Mujou</option>
-                <option value="KyonshiAni">Kyonshi Ani</option>
-                <option value="Kyuuketsuhime">Kyuuketsuhime</option>
-                <option value="Mannendake">Mannendake</option>
-                <option value="Momiji">Momiji</option>
-                <option value="Momonosei">Momo no Sei</option>
-                <option value="Mouba">Mouba</option>
-                <option value="NekoOkami">Neko Okami</option>
-                <option value="Oitsukigami">Oitsukigami</option>
-                <option value="Okou">Okou</option>
-                <option value="SakuraNosei">Sakura no Sei</option>
-                <option value="ShiroDouji">Shiro Douji</option>
-                <option value="Shiromujou">Shiro Mujou</option>
-                <option value="Shoyou">Shoyou</option>
-                <option value="Ubume">Ubume</option>
-                <option value="Umibouzu">Umibouzu</option>
-                <option value="Yasha">Yasha</option>
-                <option value="Youkinshi">Youkinshi</option>
-                <option value="Youko">Youko</option>
-                <option value="YukiOnna">Yuki Onna</option>
-                <option value="Yumekui">Yumekui</option>
-                <!--R-->
-                <option value="4" disabled>-----R-----</option>
-                <option value="AmeOnna">Ame Onna</option>
-                <option value="Bakedanuki">Bakedanuki</option>
-                <option value="Doujo">Doujo</option>
-                <option value="Gaki">Gaki</option>
-                <option value="Heiyo">Heiyo</option>
-                <option value="HitotsumeKozou">Hitotsume Kozou</option>
-                <option value="Hotarugusa">Hotarugusa</option>
-                <option value="Jikigaeru">Jikigaeru</option>
-                <option value="Juzu">Juzu</option>
-                <option value="Kamigui">Kamigui</option>
-                <option value="Kanko">Kanko</option>
-                <option value="Kappa">Kappa</option>
-                <option value="Karasutengu">Karasu Tengu</option>
-                <option value="Kitsune">Sanbi no Kitsune</option>
-                <option value="Kochosei">Kochosei</option>
-                <option value="Kodokushi">Kodokushi</option>
-                <option value="Koi">Koi</option>
-                <option value="Korouka">Korouka</option>
-                <option value="KosodenoTe">Kosode no Te</option>
-                <option value="Kubinashi">Kubinashi</option>
-                <option value="Kyonshi_Otouto">Kyonshi Otouto</option>
-                <option value="KyonshiImouto">Kyonshi Imouto</option>
-                <option value="Kyuumeneko">Kyuumeneko</option>
-                <option value="Maki_Karashi">Maki Karashi</option>
-                <option value="Mushishi">Mushishi</option>
-                <option value="Oguna">Oguna</option>
-                <option value="Samurai">Samurai</option>
-                <option value="Satori">Satori</option>
-                <option value="Shouzu">Shouzu</option>
-                <option value="Tesso">Tesso</option>
-                <option value="Usagimaru">Usagimaru</option>
-                <option value="UshinoKokumairi">Ushi no Kokumairi</option>
-                <option value="Yamausagi">Yamausagi</option>
-                <option value="Yamawaro">Yamawaro</option>
-                <option value="Zashikiwarashi">Zashiki Warashi</option>
-                <!--N-->
-                <option value="5" disabled>-----N-----</option>
-            </select>
-        </div>
-        <div class="shiki">
-            <img src="./data/adslogo.png" id="imgShiki12">
-            <select id="selectShiki12" onchange="document.getElementById('imgShiki12').src='./data/'+value+'.png'">
-                <option value="0" disabled selected>Select main...</option>
-                <option value="yaobikuni">Yao Bikuni</option>
-                <option value="seimei">Seimei</option>
-                <option value="kagura">Kagura</option>
-                <option value="hiromasa">Hiromasa</option>
-            </select>
-        </div>
+    <div class="fixed previous-count">
+      <div class="previous-count-red"></div>
+      <div class="previous-count-blue"></div>
     </div>
-</div>
-</div>
-<script type="text/javascript">
-function sendSrc(){
-    var savecode = document.getElementById('matkhau').value;
+    <div class="fixed hack-bar"></div>
+  </div>
 
-    // var tengnuoichoi1 = document.getElementById('ign1').value;
-    // var tengnuoichoi2 = document.getElementById('ign2').value;
+  <form hidden id="upload" enctype="multipart/form-data">
+    <input id="match" name="match" type="file" accept="image/*" onchange="uploadImage(event)">
+  </form>
+  <div class="container">
+    <div class="help-text--wrapper">
+      <div class="help-text">  
+      </div>
+      <div class="close">
+        x
+      </div>
+    </div>
+    <input id="main" placeholder="输入式神，或者点这个相机→"/>
+    <div class="photo"><img height="30px" src="./frontend/resources/misc/photo.png?_v=luqiao" ></div>
+    <div class="result">
+      <div class="result-wrapper--red">
+        <div class="overview">
+          ???
+        </div>
+        <div class="result--red">
+          <div class="result-1">
+            <div class="avatar"></div>
+            <div class="pad"></div>
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="name"></div>
+            </div>
+          </div>
+          <div class="result-2">
+            <div class="avatar"></div>
+            <div class="pad"></div>
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="name"></div>
+            </div>
+          </div>
+          <div class="result-3">
+            <div class="avatar"></div>
+            <div class="pad"></div>
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="name"></div>
+            </div>
+          </div>
+          <div class="result-4">
+            <div class="avatar"></div>
+            <div class="pad"></div>
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="name"></div>
+            </div>
+          </div>
+          <div class="result-5">
+            <div class="avatar"></div>
+            <div class="pad"></div>
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="name"></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    var shiki1 = document.getElementById('imgShiki1').src;
-    var shiki2 = document.getElementById('imgShiki2').src;
-    var shiki3 = document.getElementById('imgShiki3').src;
-    var shiki4 = document.getElementById('imgShiki4').src;
-    var shiki5 = document.getElementById('imgShiki5').src;
-    var shiki6 = document.getElementById('imgShiki6').src;
-    var shiki7 = document.getElementById('imgShiki7').src;
-    var shiki8 = document.getElementById('imgShiki8').src;
-    var shiki9 = document.getElementById('imgShiki9').src;
-    var shiki10 = document.getElementById('imgShiki10').src;
-    var shiki11 = document.getElementById('imgShiki11').src;
-    var shiki12 = document.getElementById('imgShiki12').src;
-
-    if (savecode == '') {
-        document.getElementById("saimatkhau").hidden=true;
-        document.getElementById("dungmatkhau").hidden=false;
-        // window.localStorage.setItem('tengnuoichoi1',tengnuoichoi1);
-        // window.localStorage.setItem('tengnuoichoi2',tengnuoichoi2);
-        window.localStorage.setItem('shiki1',shiki1);
-        window.localStorage.setItem('shiki2',shiki2);
-        window.localStorage.setItem('shiki3',shiki3);
-        window.localStorage.setItem('shiki4',shiki4);
-        window.localStorage.setItem('shiki5',shiki5);
-        window.localStorage.setItem('shiki6',shiki6);
-        window.localStorage.setItem('shiki7',shiki7);
-        window.localStorage.setItem('shiki8',shiki8);
-        window.localStorage.setItem('shiki9',shiki9);
-        window.localStorage.setItem('shiki10',shiki10);
-        window.localStorage.setItem('shiki11',shiki11);
-        window.localStorage.setItem('shiki12',shiki12);
-    }else if (savecode != ''){
-        document.getElementById("saimatkhau").hidden=false;
-        document.getElementById("dungmatkhau").hidden=true;
-    }
-}
-
-function refreshShiki(){
-    var shiki0 = './data/adslogo.png';
-    document.getElementById("saimatkhau").hidden=true;
-    document.getElementById("dungmatkhau").hidden=true;
-    // document.getElementById('ign1').value = "Người chơi 1";
-    // document.getElementById('ign2').value = "Người chơi 2";
-    document.getElementById("imgShiki1").src = shiki0;
-    document.getElementById("imgShiki2").src = shiki0;
-    document.getElementById("imgShiki3").src = shiki0;
-    document.getElementById("imgShiki4").src = shiki0;
-    document.getElementById("imgShiki5").src = shiki0;
-    document.getElementById("imgShiki6").src = shiki0;
-    document.getElementById("imgShiki7").src = shiki0;
-    document.getElementById("imgShiki8").src = shiki0;
-    document.getElementById("imgShiki9").src = shiki0;
-    document.getElementById("imgShiki10").src = shiki0;
-    document.getElementById("imgShiki11").src = shiki0;
-    document.getElementById("imgShiki12").src = shiki0;
-
-    document.getElementById("selectShiki1").value = '0';
-    document.getElementById("selectShiki2").value = '0';
-    document.getElementById("selectShiki3").value = '0';
-    document.getElementById("selectShiki4").value = '0';
-    document.getElementById("selectShiki5").value = '0';
-    document.getElementById("selectShiki6").value = '0';
-    document.getElementById("selectShiki7").value = '0';
-    document.getElementById("selectShiki8").value = '0';
-    document.getElementById("selectShiki9").value = '0';
-    document.getElementById("selectShiki10").value = '0';
-    document.getElementById("selectShiki11").value = '0';
-    document.getElementById("selectShiki12").value = '0';
-
-    sendSrc();
-}
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        window.location.href= './canhbao.html' ;
-}
-</script>
+      <div class="result-wrapper--blue">
+        <div class="overview">
+          ???
+        </div>
+        <div class="result--blue">
+          <div class="result-6">
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="name"></div>
+            </div>
+            <div class="pad"></div>
+            <div class="avatar"></div>
+          </div>
+          <div class="result-7">
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="name"></div>
+            </div>
+            <div class="pad"></div>
+            <div class="avatar"></div>
+          </div>
+          <div class="result-8">
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="name"></div>
+            </div>
+            <div class="pad"></div>
+            <div class="avatar"></div>
+          </div>
+          <div class="result-9">
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="name"></div>
+            </div>
+            <div class="pad"></div>
+            <div class="avatar"></div>
+          </div>
+          <div class="result-10">
+            <div class="stats">
+              <div class="win-lose"></div>
+              <div class="win-percentage"></div>
+              <div class="name"></div>
+            </div>
+            <div class="pad"></div>
+            <div class="avatar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
-<style type="text/css">
-html {
-    position: relative;
-    min-width: 1280px;
-    min-height: 1080px;
-    height: 100%;
-}
-html, body {
-    height: 100%;
-    margin: 0;
-}
-#wrapper {
-    min-height: 100%; 
-}
-.bg{
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    display: block;
-    position: relative;
-}
-.bg::after {
-  content: "";
-  background: url("./data/bg.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 100%; 
-  opacity: 0.7;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;   
-}
-.container{
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: auto;
-	width: 1280px;
-    height: 100%;
-    margin: 0 auto;
-}
-#btnShowShiki{
-    height: 5%;
-}
-.team1{
-	height: 40%;
-    width: 100%;
-}
-.team1 .shiki{
-    height: 100%;
-    width: 14%;
-    margin: 1%;
-    display: inline-block;
-    position: relative;
-}
-.team1 .shiki img{
-    border: 2px solid red;
-    border-radius: 25px;
-    margin: 1%;
-    height: 80%;
-    width: 100%;
-    background: #FFF;
-
-}
-.team1 .shiki select{
-    margin: 1%;
-    height: 10%;
-    width: 100%;
-}
-
-.team2{
-    height: 40%;
-    width: 100%;
-}
-.team2 .shiki{
-    height: 100%;
-    width: 14%;
-    margin: 1%;
-    display: inline-block;
-    position: relative;
-}
-.team2 .shiki img{
-    border: 2px solid blue;
-    border-radius: 25px;
-    margin: 1%;
-    height: 80%;
-    width: 100%;
-    background: #FFF;
-}
-.team2 .shiki select{
-    margin: 1%;
-    height: 10%;
-    width: 100%;
-}
-</style>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-65743477-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<script src="./frontend/main.js?_v=luqiao"></script>
+</html>
