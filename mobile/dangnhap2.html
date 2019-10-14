@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+  	<link rel="stylesheet" type="text/css" href="reglog.css">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+	<a href="index.html"><img src="../img/logo.jpg"></a>
+</header>
+<div id="content">
+	<h1>Đăng nhập</h1>
+	<form name="f1" onsubmit="return checkform()">
+		<p class="freg">
+			<label>Tên tài khoản:</label>
+			<input class="tf" type="text" name="lid" placeholder="Tên tài khoản..."/>
+			<span id="idlocation" style="color:red">
+		</p>
+		<p class="freg">
+			<label>Mật khẩu:</label>
+			<input class="tf" type="text" name="lpass" placeholder="Mật khẩu..."/>
+			<span id="passlocation" style="color:red">
+		</p>
+		<p>
+			<button type="submit" class="btn m">Đăng nhập</button>
+		</p>
+	</form>
+	<div class="reg">
+		<p><a class="btn fb" href="https://quantrimang.com/account/facebook?returnUrl=%2Faccount%2Fprofile%3Fq%3Dregister">Đăng nhập bằng Facebook</a></p>
+		<p><a class="btn gg" href="https://quantrimang.com/account/google?returnUrl=%2Faccount%2Fprofile%3Fq%3Dregister">Đăng nhập bằng Google</a></p>
+	</div>
+	<div class="login">
+		<span>Chưa có tài khoản ? <a href="dangky.html">Đăng ký</a></span>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		window.location.href= '../desktop/dangnhap2.html' ;
+	}
+</script>
+<script type="text/javascript">  
+function checkform(){
+var lid=document.f1.lid.value;
+var lpass=document.f1.lpass.value;
+var status=false;
+
+	if (lid==""){
+		document.getElementById("idlocation").innerHTML="Tài khoản không được để trống";
+		status=false;
+	}
+	if (lid!=""){
+		document.getElementById("idlocation").innerHTML="";
+		status=true;
+	}
+	//
+	//
+	if (lpass==""){
+		document.getElementById("passlocation").innerHTML="Mật khẩu không được để trống";
+		status=false;
+	}
+	if (lpass!=""){
+		document.getElementById("passlocation").innerHTML="";
+		status=true;
+	}
+return status;
+}
+</script>
+</html>

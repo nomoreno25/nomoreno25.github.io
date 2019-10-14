@@ -1,0 +1,184 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	margin: 0 auto;
+	width: 1280px;
+	font-family: Arial;
+}
+a{
+	text-decoration: none;
+}
+header{
+	height: 100px;
+	width: 100%;
+}
+.cl{
+	clear: both;
+	content: "";
+}
+.h-l{
+	height: 100px;
+	width: 20%;
+	float: left;
+}
+.h-l img{
+	height: 80px;
+	width: 95%;
+	margin: 7px;
+}
+.h-m{
+	height: 100px;
+	width: 50%;
+	float: left;
+}
+.h-m input{
+	height: 25px;
+	width: 250px;
+	margin: 30px 0px 30px 50px;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+.h-m button{
+	height: 29px;
+	width: 50px;
+	background: #357ae8;
+	border: none;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+	position: absolute;
+	top: 30px;
+}
+.h-r{
+	height: 100px;
+	width: 30%;
+	float: right;
+}
+.h-r a{
+	margin: 35px 5px 35px 5px;
+	float: right;
+	color: #000;
+}
+.h-r a:hover{
+	color: red;
+}
+nav{
+	background: #58257b;
+}
+nav ul{
+	list-style-type: none;
+ 	text-align: center;
+}
+nav li{
+	color: #fff;
+	display: inline-block;
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	margin-left: -5px;
+}
+nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+nav a:hover {
+  background: #F1F1F1;
+  color: #333;
+}
+#content{
+	min-height: 100px;
+	width: 100%;
+}
+.c-l{
+	width: 75%;
+	float: left;
+}
+.bigimg{
+	background: url(../img/bigimg.jpg) no-repeat;
+	background-size: cover;
+	height: 300px;
+	width: 90%;
+	margin: 15px 5% 10px 5%;
+	text-align: center;
+	font-size: 30px;
+	position: relative;
+}
+.bigimg p{
+	padding: 10px 235px;
+	position: absolute;
+	bottom: 0;
+	background: rgba(0,0,0,0.5);
+}
+.bigimg a{
+	color: #fff;
+}
+.minic{
+	height: 180px;
+	width: 90%;
+	margin: 15px 5% 10px 5%;
+	border: 2px solid #58257b;
+}
+.minic img{
+	height: 160px;
+	width: 160px;
+	margin: 10px;
+	float: left;
+}
+.minic a{
+	color: #000;
+	margin: 10px;
+}
+.minic a:hover{
+	color: red;
+}
+.c-r{
+	width: 25%;
+	float: right;
+}
+.vmenu{
+	margin: 30px 50px 10px 50px;
+}
+.c-r h3{
+	height: 20px;
+	width: 100%;
+	border: 1px solid #58257b;
+	text-align: center;
+	background: #58257b;
+	color: #fff;
+}
+.c-r ul li{
+	height: 20px;
+	width: 100%;
+	display: block;
+	border: 1px solid #58257b;
+	text-align: center;
+}
+.c-r ul li a{
+	color: #000;
+}
+.c-r ul li:hover{
+	background: #58257b;
+}
+.c-r ul li a:hover{
+	color: yellow;
+}
+footer{
+	height: 120px;
+	width: 100%;
+	border-top: 2px solid #58257b;
+	font-size: 14px;
+	background: aliceblue;
+}
+.f-l{
+	width: 45%;
+	float: left;
+	margin-left: 20px;
+}
+.f-r{
+	margin-right: 20px;
+	width: 45%;
+	float: right;
+	text-align: right;
+}

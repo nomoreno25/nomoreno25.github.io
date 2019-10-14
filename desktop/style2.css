@@ -1,0 +1,172 @@
+.chitiet{
+	margin: 5%;
+}
+.userpost{
+	height: 100px;
+	width: 100%;
+	background: #fcfcfc;
+}
+.userpost i{
+	font-size: 50px;
+	float: left;
+	margin: 20px 1px 20px 30px;
+}
+.userpost img{
+	float: right;
+	height: 50px;
+	width: 50px;
+}
+.noidung{
+	text-indent: 20px;
+}
+.noidung img{
+	height: 360px;
+	width: 650px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.noidung>span{
+	text-align: center;
+}
+.danhmuc{
+	min-height: 750px;
+	width: 90%;
+	margin: 5%;
+	border: 1px solid #58257b;
+}
+.dnoidung{
+	width: 49%;
+	float: left;
+	box-sizing: border-box;
+	padding: 10px;
+}
+.dtitle{
+	padding: 5px;
+	margin: 5px;
+	height: 30px;
+	font-size: 24px;
+	border-left: 5px solid #58257b;
+}
+.dmini{
+	height: 20%;
+	width: 100%;
+	border-bottom: 1px solid #bebebe;
+}
+.dmini h2{
+	font-size: 22px;
+	min-height: 80px;
+	overflow: hidden;
+}
+.dmini p{
+	min-height: 60px;
+	overflow: hidden;
+}
+.dmini img{
+	float: left;
+	height: 25%;
+	width: 25%;
+	margin: 10px;
+}
+.lform{
+	width: 90%;
+	height: 320px;
+	background: rgba(0,0,0,0.05);
+	margin: 5px 0px 0px 60px;
+	padding: 10px;
+}
+.ltitle{
+	height: 20px;
+	width: 60px;
+	margin: 30px 0px 0px 65px;
+	padding: 5px;
+	background: #19abe0;
+	color: #fff;
+	border-radius: 4px 4px 0 0;
+}
+.lline{
+	margin-left: 60px;
+	width: 92%;
+	border-bottom: 2px solid #19abe0;
+}
+.lform td{
+	height: 30px;
+}
+.lform input{
+	height: 20px;
+	width: 420px;
+}
+.lform span{
+	margin-left: 10px;
+	height: 30px;
+}
+.btn:hover{
+	color: yellow !important;
+}
+.moreinfo{
+	height: 400px;
+	width: 400px;
+	margin: 20px 30px 0px 0px;
+	float: right;
+}
+.lmap{
+	margin: 10px 10px 0px 60px;
+	padding: 10px;
+	float: left;
+}
+.gline{
+	margin: auto;
+	width: 90%;
+	border-bottom: 2px solid #bebebe;
+}
+.gthongke{
+	height: 400px;
+	width: 98.5%;
+	padding: 10px;
+	color: #7fb439;
+}
+.gthongke img{
+	height: 90%;
+	width: 22%;
+	margin: 9px 17px;
+}
+.gapp{
+	height: 150px;
+	width: 98.5%;
+	padding: 10px;
+	color: #7fb439;
+}
+.gbtn{
+	height: 120px;
+	width: 960px;
+	margin: auto;
+}
+.gapp button{
+	height: 100px;
+	width: 300px;
+	border: none;
+	margin: 8px;
+}
+.gapp a{
+	color: #000;
+}
+.gapp a:hover{
+	color: blue;
+}
+.gdoitac{
+	height: 480px;
+	width: 98.5%;
+	padding: 10px;
+	color: #7fb439;
+	background: #f6f6f6;
+}
+.gimg{
+	height: 120px;
+	width: 1200px;
+	margin: auto;
+}
+.gdoitac img{
+	height: 210px;
+	width: 1200px;
+	padding: 10px;
+}

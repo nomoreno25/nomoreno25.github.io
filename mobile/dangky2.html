@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+  	<link rel="stylesheet" type="text/css" href="reglog.css">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+	<a href="index.html"><img src="../img/logo.jpg"></a>
+</header>
+<div id="content">
+	<h1>Đăng ký tài khoản</h1>
+	<div class="reg">
+		<form name="f1" onsubmit="return checkform()">
+			<p class="freg">
+				<label>Tên tài khoản:</label>
+				<input class="tf" type="text" name="lid" placeholder="Tên tài khoản..."/>
+				<span id="idlocation" style="color:red">
+			</p>
+			<p class="freg">
+				<label>Email:</label>
+				<input class="tf" type="text" name="lemail" placeholder="Email..."/>
+				<span id="maillocation" style="color:red">
+			</p>
+			<p class="freg">
+				<label>Mật khẩu:</label>
+				<input class="tf" type="password" name="lpass" placeholder="Mật khẩu..."/>
+				<span id="passlocation" style="color:red">
+			</p>
+			<p class="freg">
+				<label>Nhập lại mật khẩu:</label>
+				<input class="tf" type="password" name="lpass2" placeholder="Nhập lại mật khẩu..."/>
+				<span id="pass2location" style="color:red">
+			</p>
+			<p>
+				<button type="submit" class="btn m">Đăng ký</button>
+			</p>
+		</form>
+		<div class="reg">
+			<p><a class="btn fb" href="https://quantrimang.com/account/facebook?returnUrl=%2Faccount%2Fprofile%3Fq%3Dregister">Đăng ký bằng Facebook</a></p>
+			<p><a class="btn gg" href="https://quantrimang.com/account/google?returnUrl=%2Faccount%2Fprofile%3Fq%3Dregister">Đăng ký bằng Google</a></p>
+			<p class="dieukhoan">
+			<span>Bằng việc đăng ký tài khoản</span><br>
+			<span>Tôi đồng ý với <a href="dangnhap.html">Chính sách và quy định</a>  sử dụng</span>
+			</p>
+		</div>
+		<div class="login">
+			<span>Đã có tài khoản ? <a href="dangnhap.html">Đăng nhập</a></span>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		window.location.href= '../desktop/dangky2.html' ;
+	}
+</script>
+<script type="text/javascript">  
+function checkform(){
+var lid=document.f1.lid.value;  
+var lemail=document.f1.lemail.value.indexOf("@");
+var lpass=document.f1.lpass.value;
+var lpass2=document.f1.lpass2.value;
+var status=false;
+
+	if (lid==""){
+		document.getElementById("idlocation").innerHTML="Tài khoản không được để trống";
+		status=false;
+	}
+	if (lid!=""){
+		document.getElementById("idlocation").innerHTML="";
+		status=true;
+	}
+	//
+	if (lemail==-1){
+		document.getElementById("maillocation").innerHTML="Email không đúng định dạng";
+		status=false;
+	}
+	if (lemail!=-1){
+		document.getElementById("maillocation").innerHTML="";
+		status=true;
+	}
+	//
+	if (lpass==""){
+		document.getElementById("passlocation").innerHTML="Mật khẩu không được để trống";
+		status=false;
+	}
+	if (lpass!=""){
+		document.getElementById("passlocation").innerHTML="";
+		status=true;
+	}
+	//
+	if (lpass!=lpass2){
+		document.getElementById("pass2location").innerHTML="Mật khẩu không trùng nhau";
+		status=false;
+	}
+	if (lpass!=lpass2){
+		document.getElementById("pass2location").innerHTML="";
+		status=true;
+	}
+return status;
+}
+</script>
+</html>

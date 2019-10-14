@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style2.css">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="index.html">Trang chủ</a>
+    <a href="chitiet.html">Chi tiết</a>
+    <a href="danhmuc.html">Danh mục</a>
+    <a href="lienhe.html">Liên hệ</a>
+    <a href="gioithieu.html">Giới thiệu</a>
+    <a href="dangky.html">Đăng ký</a>
+    <a href="dangnhap.html">Đăng nhập</a>
+  </div>
+</div>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+<a href="index.html"><img src="../img/logo.jpg" style="margin-top: 10px;"></a>
+<p style="float: right; font-size: 30px; margin: 20px; border: 1px solid #58257b;"><a href="dangnhap.html"><i class="fa fa-user-circle-o"></i>Login</a></p>
+</header>
+<div id="content">
+<div class="gcontent">
+  <div class="gthongke">
+    <h1 style="text-align: center;">Phục vụ hơn</h1>
+    <img src="../img/thongke1.jpg">
+    <img src="../img/thongke2.jpg">
+    <img src="../img/thongke3.jpg">
+    <img src="../img/thongke4.jpg">
+    <div class="gline"></div>
+  </div>
+  <div class="gapp">
+    <h1 style="text-align: center;">Tải về ứng dụng</h1>
+    <div class="gbtn">
+      <button><a href="#"><i class="fa fa-windows" style="font-size:36px"></i><p style="font-size: 24px;">Window</p></a></button>
+      <button><a href="#"><i class="fa fa-apple" style="font-size:36px"></i><p style="font-size: 24px;">iOS</p></a></button>
+      <button><a href="#"><i class="fa fa-android" style="font-size:36px"></i><p style="font-size: 24px;">Android</p></a></button>
+      <div class="cl"></div>
+    </div>
+    <div class="gline"></div>
+  </div>
+  <div class="gdoitac">
+    <h1 style="text-align: center;">Đối tác của hơn 300 doanh nghiệp mỗi năm</h1>
+    <div class="gimg">
+      <img src="../img/mdoitac1.jpg">
+      <img src="../img/mdoitac2.jpg">
+    </div>
+  </div>
+  <div class="cl"></div>
+</div>
+</div>
+<footer>
+    <p><a href="lienhe.html">Liên hệ</a> | Tải ứng dụng | Facebook | Youtube | Google+ | Chính sách và quy định</p>
+    <p>Giấy phép số 362/GP-BTTTT. Bộ Thông tin và Truyền thông cấp ngày 30/06/2016.</p>
+    <p>Cơ quan chủ quản: CÔNG TY CỔ PHẦN MẠNG TRỰC TUYẾN META.</p>
+    <p>Địa chỉ: 56 Duy Tân, Dịch Vọng Hậu, Cầu Giấy, Hà Nội. Điện thoại: 024.3785.5633. Email: info@meta.vn.</p>
+    <p>Chịu trách nhiệm nội dung: Lê Ngọc Lam.</p>
+    <br>
+    <p>Bản quyền © 2003-2017 QuanTriMang.com. Giữ toàn quyền.</p>
+    <p>Không được sao chép hoặc sử dụng hoặc phát hành lại bất kỳ nội dung nào thuộc QuanTriMang.com </p>
+    <p>khi chưa được phép.</p>
+</footer>
+</body>
+<script type="text/javascript">
+	if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		window.location.href= '../desktop/gioithieu.html' ;
+	}
+</script>
+<script>
+function openNav() {
+    document.getElementById("myNav").style.height = "80%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
+</script>
+</html>

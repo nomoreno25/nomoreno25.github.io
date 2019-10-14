@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="index.html">Trang chủ</a>
+    <a href="chitiet.html">Chi tiết</a>
+    <a href="danhmuc.html">Danh mục</a>
+    <a href="lienhe.html">Liên hệ</a>
+    <a href="gioithieu.html">Giới thiệu</a>
+    <a href="dangky.html">Đăng ký</a>
+    <a href="dangnhap.html">Đăng nhập</a>
+  </div>
+</div>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+<a href="index.html"><img src="../img/logo.jpg" style="margin-top: 10px;"></a>
+<p style="float: right; font-size: 30px; margin: 20px; border: 1px solid #58257b;"><a href="dangnhap.html"><i class="fa fa-user-circle-o"></i>Login</a></p>
+</header>
+<div id="content">
+  <div class="dnoidung">
+  <div class="dtitle">
+    <p>Liên hệ</p>
+  </div>
+  <form name="f1" onsubmit="return validate()">  
+    <table>
+          <tr>
+            <td>Họ tên:</td>
+            <td><input type="text" name="lhname" placeholder="Full Name" /></td>
+            
+          </tr>
+          <tr>
+            <td colspan="2"><span id="namelocation" style="color:red"></td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td><input type="text" name="lhemail" placeholder="Email" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><span id="emaillocation" style="color:red"></td>
+          </tr>
+          <tr>
+            <td>Điện thoại:</td>
+            <td><input type="text" name="lhphone" placeholder="Phone" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><span id="phonelocation" style="color:red"></td>
+          </tr>
+          <tr>
+            <td>Địa chỉ:</td>
+            <td><input type="text" name="lhaddress" placeholder="Address" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><span id="addresslocation" style="color:red"></td>
+          </tr>
+          <tr>
+            <td>Tiêu đề:</td>
+            <td><input type="text" name="lhtitle" placeholder="Title" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><span id="titlelocation" style="color:red"></td>
+          </tr>
+          <tr>
+            <td>Nội dung:</td>
+            <td><input type="text" name="lhcontent" style="height: 100px;" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><span id="contentlocation" style="color:red"></td>
+          </tr>
+          <tr>
+            <td><input class="btn" type="submit" value="Gửi liên hệ" style=" width: 120px; height: 50px; margin: 10px 0px 0px 70px; border-radius: 3px; background: #58257b; border: none; color: #fff; font-size: 20px;" />  </td>
+            <td><input class="btn" type="reset" value="Làm lại" style=" width: 120px; height: 50px; margin: 10px 0px 0px 10px; border-radius: 3px; background: #58257b; border: none; color: #fff; font-size: 20px;" />  </td>
+          </tr>
+    </table>
+  </form>
+  <div class="moreinfo">
+      <h3 style="text-align: center;">CÔNG TY CỔ PHẦN MẠNG TRỰC TUYẾN META.</h3><br>
+      <h4 class="lhcs">Cơ sở 1</h4><br>
+      <p>Địa chỉ: 56 Duy Tân, Dịch Vọng Hậu, Cầu Giấy, Hà Nội.</p>
+      <p>Điện thoại: 024.3785.5633.</p>
+      <p>Email: info@meta.vn.</p><br>
+      <hr>
+      <h4 class="lhcs">Cơ sở 2</h4><br>
+      <p>Địa chỉ: 58 Duy Tân, Dịch Vọng Hậu, Cầu Giấy, Hà Nội.</p>
+      <p>Điện thoại: 024.3785.5634.</p>
+      <p>Email: info2@meta.vn.</p><br>
+      <hr>
+      <h4 class="lhcs">Cơ sở 3</h4><br>
+      <p>Địa chỉ: 60 Duy Tân, Dịch Vọng Hậu, Cầu Giấy, Hà Nội.</p>
+      <p>Điện thoại: 024.3785.5635.</p>
+      <p>Email: info3@meta.vn.</p><br>
+      <hr>
+    </div>
+  </div>
+</div>
+<footer>
+    <p><a href="lienhe.html">Liên hệ</a> | Tải ứng dụng | Facebook | Youtube | Google+ | Chính sách và quy định</p>
+    <p>Giấy phép số 362/GP-BTTTT. Bộ Thông tin và Truyền thông cấp ngày 30/06/2016.</p>
+    <p>Cơ quan chủ quản: CÔNG TY CỔ PHẦN MẠNG TRỰC TUYẾN META.</p>
+    <p>Địa chỉ: 56 Duy Tân, Dịch Vọng Hậu, Cầu Giấy, Hà Nội. Điện thoại: 024.3785.5633. Email: info@meta.vn.</p>
+    <p>Chịu trách nhiệm nội dung: Lê Ngọc Lam.</p>
+    <br>
+    <p>Bản quyền © 2003-2017 QuanTriMang.com. Giữ toàn quyền.</p>
+    <p>Không được sao chép hoặc sử dụng hoặc phát hành lại bất kỳ nội dung nào thuộc QuanTriMang.com </p>
+    <p>khi chưa được phép.</p>
+</footer>
+</body>
+<script type="text/javascript">
+	if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		window.location.href= '../desktop/lienhe.html' ;
+	}
+</script>
+<script>
+function openNav() {
+    document.getElementById("myNav").style.height = "80%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
+</script>
+<script type="text/javascript">  
+function validate(){  
+var lhname=document.f1.lhname.value;  
+var lhemail=document.f1.lhemail.value;
+var lhphone=document.f1.lhphone.value;
+var lhaddress=document.f1.lhaddress.value;
+var lhtitle=document.f1.lhtitle.value;
+var lhcontent=document.f1.lhcontent.value;
+var status=false;  
+
+if(lhname==""){  
+document.getElementById("namelocation").innerHTML=  
+" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Tên không được để trống.";  
+status=false;
+}else{  
+document.getElementById("namelocation").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
+status=true;
+} 
+
+if(lhemail==""){  
+document.getElementById("emaillocation").innerHTML=  
+" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Email không được để trống.";  
+status=false;
+}else{  
+document.getElementById("emaillocation").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
+status=true;
+} 
+
+if(lhphone==""){  
+document.getElementById("phonelocation").innerHTML=  
+" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Số điện thoại không được để trống.";  
+status=false;
+}else{  
+document.getElementById("phonelocation").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
+status=true;
+}
+
+if(lhaddress==""){  
+document.getElementById("addresslocation").innerHTML=  
+" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Địa chỉ không được để trống.";  
+status=false;
+}else{  
+document.getElementById("addresslocation").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
+status=true;
+}
+
+if(lhtitle==""){  
+document.getElementById("titlelocation").innerHTML=  
+" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Vui lòng nhập tiêu đề.";  
+status=false;
+}else{  
+document.getElementById("titlelocation").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
+status=true;
+} 
+
+if(lhcontent==""){  
+document.getElementById("contentlocation").innerHTML=  
+" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Vui lòng nhập nội dung.";  
+status=false;
+}else{  
+document.getElementById("contentlocation").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
+status=true;
+}  
+
+return status;  
+}  
+</script> 
+</html>
